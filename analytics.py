@@ -3,55 +3,72 @@
 # ==========================================
 
 def filter_sales_above_threshold(sales: list, threshold: int):
-    """
-    QUESTION 1
-    ----------------------------------------
-    Given a list of sales amounts (integers), return a NEW list containing 
-    only values above the threshold.
-    
-    Example: filter_sales_above_threshold([100, 250, 75, 300], 150) → [250, 300]
-    
-    Logic:
-    - Do NOT modify the original list
-    - Return empty list if no values qualify
-    - Use a loop or list comprehension
-    """
-    # TODO: Write your code here
-    pass
+   """
+   QUESTION 1
+   ----------------------------------------
+   Given a list of sales amounts (integers), return a NEW list containing 
+   only values above the threshold.
+   
+   Example: filter_sales_above_threshold([100, 250, 75, 300], 150) → [250, 300]
+   
+   Logic:
+   - Do NOT modify the original list
+   - Return empty list if no values qualify
+   - Use a loop or list comprehension
+   """
+   # TODO: Write your code here
+   beyond = [x for x in sales if x > threshold]
+   return beyond
 
 
-def count_product_codes(codes: list, prefix: str):
-    """
-    QUESTION 2
-    ----------------------------------------
-    Given a list of product codes (strings) and a prefix (string),
-    count how many codes START with the given prefix (case-sensitive).
-    
-    Example: count_product_codes(["PROD-001", "PROD-002", "SERV-001"], "PROD") → 2
-    
-    Logic:
-    - Return 0 if no matches found
-    """
-    # TODO: Write your code here
-    pass
+def count_product_codes(codes: list[str], prefix: str) -> int:
+   """
+   QUESTION 2
+   ----------------------------------------
+   Given a list of product codes (strings) and a prefix (string),
+   count how many codes START with the given prefix (case-sensitive).
+   
+   Example: count_product_codes(["PROD-001", "PROD-002", "SERV-001"], "PROD") → 2
+   
+   Logic:
+   - Return 0 if no matches found
+   """
+   # TODO: Write your code here
+   count = 0
+   for code in codes:
+      if code.startswith(prefix):
+         count +=1
+      else:
+         return count
+   return count
 
 
-def calculate_moving_average(numbers: list, window_size: int):
-    """
-    QUESTION 3
-    ----------------------------------------
-    Calculate the average of the LAST window_size elements in the list.
-    
-    Example: calculate_moving_average([10, 20, 30, 40, 50], 3) → 40.0
-    (average of last 3: 30, 40, 50)
-    
-    Logic:
-    - If the list has fewer elements than window_size, use all available elements
-    - Return the average as a float rounded to 2 decimal places
-    - Return 0.0 for empty list
-    """
-    # TODO: Write your code here
-    pass
+def calculate_moving_average(numbers: list, window_size: int) -> float:
+   """
+   QUESTION 3
+   ----------------------------------------
+   Calculate the average of the LAST window_size elements in the list.
+   
+   Example: calculate_moving_average([10, 20, 30, 40, 50], 3) → 40.0
+   (average of last 3: 30, 40, 50)
+   
+   Logic:
+   - If the list has fewer elements than window_size, use all available elements
+   - Return the average as a float rounded to 2 decimal places
+   - Return 0.0 for empty list
+   """
+   # TODO: Write your code here
+   n = len(numbers)
+   if n <= 0:
+      return 0.0
+   elif window_size >= n:
+      return sum(numbers)/len(numbers)
+   else:
+      last = [numbers[x] for x in range(-1,-window_size-1,-1) if window_size > len(numbers)]
+      total = sum(last)/window_size
+      return total
+
+print(calculate_moving_average([10, 20], 5))
 
 
 # ==========================================
@@ -59,7 +76,7 @@ def calculate_moving_average(numbers: list, window_size: int):
 # ==========================================
 
 def get_top_seller(sales_data: dict):
-    """
+   """
     QUESTION 4
     ----------------------------------------
     Given a dictionary where keys are employee names and values are sales totals,
@@ -72,11 +89,15 @@ def get_top_seller(sales_data: dict):
     - If there's a tie, return the name that appears first alphabetically
     """
     # TODO: Write your code here
-    pass
+   v = 0
+   for x in sales_data.items():
+         v = x
+   x = max(sales_data.items())
+   print(x)
 
 
 def merge_inventory(warehouse_a: dict, warehouse_b: dict):
-    """
+   """
     QUESTION 5
     ----------------------------------------
     Given two dictionaries representing product quantities in two warehouses,
@@ -93,7 +114,8 @@ def merge_inventory(warehouse_a: dict, warehouse_b: dict):
     - Do NOT modify the original dictionaries
     """
     # TODO: Write your code here
-    pass
+   # combo_dict = {x }
+   pass
 
 
 # ==========================================
